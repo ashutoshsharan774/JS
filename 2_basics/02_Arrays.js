@@ -35,3 +35,6 @@ let score1=100
 let score2=200
 let score3=300
 console.log(Array.of(score1,score2,score3))
+// The difference between Array.of() and the Array() constructor is in the handling of 
+// single arguments: Array.of(7) creates an array with a single element, 7,
+//  whereas Array(7) creates an empty array with a length property of 7
