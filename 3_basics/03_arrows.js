@@ -44,6 +44,7 @@ const chai=() =>{
 chai()
 
 //****Arrow function **** **//
+
 //An arrow function expression is a compact alternative to a 
 // traditional function expression, with some semantic differences and deliberate limitations in usage
 
@@ -58,3 +59,8 @@ console.log(addTwo(5,6));
 //Even in case of implicit return we need to wrap objects in () to run it
 const objects1=(num1,num2)=>({username:"Ashutosh"})
 console.log(objects1(3,4));
+
+//Regular functions have their own this context. And this is determined dynamically depending 
+//on how you call or execute the function. Arrow functions, on the other hand, do not have 
+//their own this context. Instead, they capture the this value from the surrounding lexical 
+//context in which the arrow function was created.
