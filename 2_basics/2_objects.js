@@ -28,10 +28,10 @@ const regularUser={
 // Merging objects
 const obj1={1:"a",2:"b"}
 const obj2={3:"A",4:"B"}
-// const obj3={obj1,obj2} //same problem arises as it arised in array that objects will be merged but they will be merged as objects
+// const obj3={obj1,obj2} //same problem arises as like in array that objects will be merged but they will be merged as objects
 
 // const obj3 =Object.assign({},obj1,obj2)//{} this acts as target and rest obj as source 
-// so basically assign is used to merge source in taarget and return a modified object
+// so basically assign is used to merge source in target and return a modified object
 // refer to object.assign mdn
 
 // Similar to what we did in array using ***spread operator*** ,the same goes for object
