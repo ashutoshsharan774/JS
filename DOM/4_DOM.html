@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning DOM manipulation along with Sharan </title>
+</head>
+<body style="background-color: #212121; color:#fff;">
+ <ul class="language">
+    <li>Javascript</li>
+ </ul>
+</body>
+<script>
+    function addLanguage(langName){
+       const li= document.createElement('li')
+       li.innerHTML=`${langName}`
+       //attach the created element to the ul so will have to select it first
+       document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+
+    function addLanguageinoptimisedway(langName){
+        //In this we don't need to traverse the whole tre again
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+        //here since we hadn't had reference of .language class therefore we neeeded to use querySelector
+    }
+    addLanguageinoptimisedway("golang")
+
+    //Edit
+    const secondLang =document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML="Mojo"
+    console.log(secondLang);
+    const newele=document.createElement('li')
+    //Another way of adding new text
+    newele.textContent="Mojo"
+    secondLang.replaceWith(newele);
+
+    const firstLang=document.querySelector("li:first-child")
+    firstLang.outerHTML='<li>Typescript</li>'
+
+    //remove
+    const lastLang=document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+
+</html>
+
+<!--In JavaScript, you can use the nth-child selector to select elements based on their position within their parent element. However,
+     unlike in CSS, where you can directly use the nth-child selector in a stylesheet, in JavaScript, you typically use methods 
+    like querySelector or querySelectorAll to achieve similar functionality.-->
+
+     
+     
+<!--In JavaScript, the outerHTML property is used to get or set the HTML representation of an element, including its own tag and its inner HTML content. It allows you to manipulate the entire HTML structure of an element, including its opening and closing tags, as a single string.
+
+Here's how you can use outerHTML:
+
+Getting the HTML content: You can use the outerHTML property to retrieve the HTML content of an element, including its own tag and its inner HTML content, as a string.
+javascript
+Copy code
+var element = document.getElementById('example');
+var htmlContent = element.outerHTML;
+console.log(htmlContent); // Outputs the HTML content of the element
+Setting the HTML content: You can also use the outerHTML property to replace the entire HTML content of an element with a new HTML string. When you set outerHTML, it replaces the element itself with the specified HTML string.
+javascript
+-->

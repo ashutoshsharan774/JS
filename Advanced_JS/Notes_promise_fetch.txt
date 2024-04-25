@@ -1,0 +1,49 @@
+We create a new Promise myPromise that performs an asynchronous operation (in this case, a simulated delay using setTimeout()).
+Inside the Promise executor function, we call either resolve() or reject() based on the outcome of the operation.
+We use the .then() method to handle the successful fulfillment of the Promise and the .catch() method to handle any errors or rejections.
+When the Promise is resolved, the .then() callback function is executed with the resolved value. If the Promise is rejected, the .catch() callback function is executed with the reason for rejection (an error).
+Promises provide a cleaner and more structured way to work with asynchronous code compared to using callbacks directly. They also support chaining multiple asynchronous operations together and allow for better error handling and propagation. Promises are a fundamental building block of modern JavaScript asynchronous programming and are widely used in libraries and frameworks for handling asynchronous tasks.
+
+
+Fetch:fetch() is a modern JavaScript API for making asynchronous HTTP requests in the browser and Node.js environments. It provides a more powerful and flexible alternative to the older XMLHttpRequest (XHR) API for fetching resources from a server or making API calls.
+
+We use fetch() to make a GET request to the URL 'https://api.example.com/data'.
+fetch() returns a Promise that resolves to the Response object representing the HTTP response.
+We use .then() to handle the response asynchronously. Inside the .then() callback, we check if the response was successful (response.ok), and if so, we parse the response body as JSON using response.json().
+If the request fails or an error occurs during the fetch operation, the Promise is rejected, and we use .catch() to handle the error.
+
+
+
+COMPARSION BETWEEN FETCH , XMLHTTPREQUEST AND ASYNC AWAIT :
+fetch(), async/await, and XMLHttpRequest are all methods for making asynchronous HTTP requests in JavaScript, but they differ in their syntax, usage, and features. Here's a comparison of the three:
+
+fetch():
+fetch() is a modern API introduced as part of the Fetch API standard.
+It uses Promises and provides a more powerful and flexible way to make HTTP requests compared to XMLHttpRequest.
+The API is Promise-based, making it easier to work with asynchronous code using .then() and .catch() for handling responses and errors.
+Supports the use of the await keyword for a cleaner syntax when dealing with asynchronous operations.
+Provides built-in support for JSON responses with the response.json() method.
+Offers a more modern and cleaner API with a simpler syntax compared to XMLHttpRequest.
+
+async/await:
+async and await are language features introduced in ECMAScript 2017 (ES8) for handling asynchronous code.
+They are not specific to HTTP requests but can be used with any asynchronous operation, including fetch() and XMLHttpRequest.
+async functions allow you to define asynchronous functions that return Promises.
+await is used inside async functions to pause execution until a Promise is settled (resolved or rejected).
+Provides a more synchronous-like syntax for writing asynchronous code, making it easier to read and reason about.
+Often used with fetch() to simplify asynchronous code by avoiding nested .then() callbacks.
+
+
+XMLHttpRequest:
+XMLHttpRequest is an older API that has been available in browsers for a long time.
+It is more verbose and has a less intuitive syntax compared to fetch() and async/await.
+Uses callbacks for handling asynchronous operations, which can lead to callback hell (nested callbacks).
+Supports synchronous and asynchronous requests, although asynchronous requests are more commonly used.
+Provides support for older browsers that may not fully support fetch() or async/await.
+In summary, while all three methods can be used for making HTTP requests, fetch() and async/await are generally preferred for modern JavaScript development due to their cleaner syntax, better support for Promises, and improved readability. XMLHttpRequest is still used in some cases, particularly for legacy code or when targeting older browsers that do not support fetch() or async/await.
+
+
+
+
+
+

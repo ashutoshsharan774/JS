@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: bisque">
+    <h1 style="color:coral">Learn JS along with Sharan</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayDate=function(str){
+        let date=new Date();
+        console.log("Time:",str,date.toLocaleTimeString())
+    }
+   /*setInterval(function(){
+   //console.log("Time is ",Date.now())
+   },1000)*/
+   //setInterval(sayDate,1000)
+
+   //I want that if I click on start button then setInterval should start functioning
+   const intervalId=setInterval(sayDate,1000,"is")
+
+//   document.querySelector('#start').addEventListener('click',function(){
+//       setInterval(intervalId)
+//    })
+ 
+   
+   document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(intervalId)
+   })
+  // clearInterval(intervalId)
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DOM with Ashutosh </title>
+</head>
+<body style="background-color:#212121; color:#fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+   const parent= document.querySelector('.parent')
+   console.log(parent);
+   console.log(parent.children);//This returns HTML collection values which behaves somewhat like array
+   console.log(parent.children[1].innerHTML);
+
+   for (let i = 0; i < parent.children.length; i++) {
+    console.log(parent.children[i].innerHTML);
+    
+   }
+
+   parent.children[0].style.color="orange"
+   console.log(parent.firstElementChild);
+   console.log(parent.lastElementChild);
+// As we are able to access child using parent similarily we can move from child to parent
+
+   const dayOne=document.querySelector('.day')//since we are using querySelector therefore whatever first value we will get it will be returened
+   console.log(dayOne);
+   //If we want to use DOM selector(query) about parent so no need to traverse the whole DOM tree 
+//   again , we just need the fn parentElement
+   console.log(dayOne.parentElement);
+
+   //We can also track next sibling element if we have got a child
+   console.log(dayOne.nextElementSibling);
+
+   console.log("NODES:", parent.childNodes);
+   //This fn helps us know ki browser behind scene kitna complex DOM tree structure bana raha ha
+//    For eg jo line break hua inside div usko bhi account mei lega childNodes function
+
+
+
+ </script>
+</html>
+
+<!--However, the naming convention differs slightly between JavaScript and CSS:
+
+In CSS, the property name is written using kebab-case, where words are separated by hyphens (-). For example: background-color.
+In JavaScript, when accessing CSS properties through the style property of an element, you use camelCase instead of kebab-case. Each word after the first is capitalized, and there are no hyphens. For example: backgroundColor.-->

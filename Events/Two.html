@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:blanchedalmond">
+    <h1 style="color: orange">Learning js along with Ashutosh Sharan</h1>
+    <button id ="stop"> Stop </button>
+</body>
+<script>
+
+    const sayAshu=function(){
+        console.log("Hi wassup Ashutosh")
+    }
+    //After 2 sec command will get executed
+    /* setTimeout(function(){//handler or callback(probably the same thing) and 2000ms i.e 2s
+        console.log("Ashutosh Sharan")
+     },2000)*/
+
+     setTimeout(sayAshu,6000)//just give reference of function sayAshu and not execute it
+
+    //  document.querySelector('h1').innerHTML="Learning from bset JS series"
+    // if I want to change the text in h1 after 5s
+    const changeText=function(){
+        document.querySelector('h1').innerHTML="Learning from best JS series"
+    }
+   // setTimeout(changeText,5000)
+
+    //what if I want to stop settimeout
+    //-->clearTimeout needs reference of which setTimeout I want to clear
+    const changeMe =setTimeout(changeText,5000)
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+    
+</script>
+</html> 

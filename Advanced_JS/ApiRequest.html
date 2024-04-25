@@ -1,0 +1,106 @@
+ <!--*****AJAX*******
+Ajax (Asynchronous JavaScript and XML) is a technique used in web development to create asynchronous web applications. It allows you to make HTTP requests to the server 
+from a web page without having to reload the entire page. With Ajax, you can update parts of a web page dynamically, handle user interactions,
+ and fetch data from a server asynchronously, providing a smoother and more responsive user experience.
+Basically ajax is an approach through which we can use diff technologies  together like html ,css, js,dom,xml,xslt, and most importantly xmlHttpRequest object
+Making Requests:
+In JavaScript, you can use the XMLHttpRequest object or the fetch() function (modern approach) to make HTTP requests to the server.
+You specify the URL of the server endpoint you want to communicate with and optionally provide request parameters such as HTTP method, headers, and request body (for POST requests).
+
+Handling Responses:
+Once the server processes the request, it sends back a response containing data or other information.
+In JavaScript, you define a callback function to handle the response when it is received. This callback function is executed asynchronously when the response arrives.
+You can then update the web page dynamically with the data received from the server without requiring a full page reload.
+
+Updating the DOM:
+After receiving the response from the server, you can manipulate the Document Object Model (DOM) of the web page using JavaScript to update specific elements or display the fetched data.
+This allows you to create interactive and dynamic user interfaces that respond to user actions and display real-time data from the server.
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <style>
+        .card{
+            border:1px solid #212121
+            border-radius:8px
+            padding: 20px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+           background-color: #fff;
+           width: 10px; 
+        }
+
+    </style> -->
+
+
+</head>
+<body style="background-color: #212121;">
+<!-- ****XMLHttpRequest.ready state property
+it returns the state an XMLHttpRequest client is in, Following are the probable states a client can be in
+Value	State	            Description
+0	    UNSENT	             Client has been created. open() not called yet.
+1	    OPENED	             open() has been called.
+2	    HEADERS_RECEIVED	  send() has been called, and headers and status are available.
+3	    LOADING	Downloading;  responseText holds partial data.
+4	    DONE	               The operation is complete.
+
+-->
+<!-- <div class="card">
+    <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Image of OG">
+
+</div> -->
+    
+</body>
+<script>
+    //xmlhttprequest is a class and to make it an object we use new keyword
+   const xhr = new XMLHttpRequest();
+   const requestUrl='https://api.github.com/users/hiteshchoudhary'
+   xhr.open('GET',requestUrl)
+//   to check if its working: console.log("HERE");
+
+//continuosuly tracking readyState
+xhr.onreadystatechange=function(){
+    console.log(xhr.readyState)
+    if(xhr.readyState === 4){
+        const data=JSON.parse(this.responseText);//converting string in json data
+        //most of the time when response comes from url it comes in string
+        //we will have to convert string in obj
+
+        console.log( typeof data)
+        console.log(data.followers)
+    }
+}
+    // console.log(xhr.readyState)
+   xhr.send()
+
+
+
+
+   //New Task---->pending
+   const chr=new XMLHttpRequest();
+   const reqUrl="https://randomuser.me/api/portraits/men/43.jpg";
+   chr.open('GET',reqUrl);
+
+   //send the response type to blob inorder to recieve the image data as binary blob
+   chr.responseType='blob'
+
+
+
+</script>
+</html>
+
+<!--Task is to find out the image of hitesh using url and place it in a card using its url-->
+<!--When using XHR, you can set the responseType property to specify how the response data should be treated. Common values for responseType include:
+"" (empty string) or "text": Treat the response as plain text.
+"json": Parse the response as JSON automatically.
+"arraybuffer": Treat the response as an ArrayBuffer.
+"blob": Treat the response as a Blob.-->
+
+
+
+<!--An API, or Application Programming Interface, is a set of rules, protocols, and tools that allows different software applications to communicate with each other. It defines the methods and data formats that applications can use to request and exchange information or perform specific actions.-->
